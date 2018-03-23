@@ -1,6 +1,7 @@
 package it.polito.lombardo.esp_webserver;
 
-import it.polito.lombardo.esp_webserver.util.MergingThread;
+import it.polito.lombardo.esp_webserver.util.ModbusThread;
+import it.polito.lombardo.esp_webserver.util.TCPServerThread;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -14,10 +15,17 @@ public class EspWebserverApplication {
 		SpringApplication.run(EspWebserverApplication.class, args);
 	}
 
-	/*@Bean
-	public MergingThread reportCleanupThread(){
-		MergingThread rct=new MergingThread();
+	@Bean
+	public TCPServerThread reportCleanupThread(){
+		TCPServerThread rct=new TCPServerThread();
 		rct.start();
 		return rct;
-	}*/
+	}
+
+	@Bean
+	public ModbusThread modbusThread() {
+		ModbusThread mt = new ModbusThread();
+		mt.start();
+		return mt;
+	}
 }
