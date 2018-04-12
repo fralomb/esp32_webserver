@@ -67,6 +67,7 @@ public class GloballyUniqueDevicesEntity {
         intervals = new ArrayList<IntervalEntity>();
         ssids = new HashSet<String>();
         ssids_hash = new HashSet<Long>();
+        footprints = new HashSet<String>();
     }
 
     /*getters and setters*/
